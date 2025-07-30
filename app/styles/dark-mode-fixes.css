@@ -1,0 +1,126 @@
+/* Dark mode text color fixes */
+html.dark,
+html.dark body,
+body.dark {
+  color: #ffffff !important;
+}
+
+/* Headers */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #ffffff !important;
+}
+
+/* Paragraphs and general text */
+.dark p,
+.dark span:not(.text-muted-foreground),
+.dark div:not(.text-muted-foreground),
+.dark li,
+.dark label,
+.dark a {
+  color: inherit;
+}
+
+/* Specific text classes */
+.dark .text-foreground {
+  color: #ffffff !important;
+}
+
+.dark .text-muted-foreground {
+  color: rgb(156 163 175) !important;
+}
+
+.dark .text-gray-300 {
+  color: rgb(209 213 219) !important;
+}
+
+.dark .text-gray-400 {
+  color: rgb(156 163 175) !important;
+}
+
+.dark .text-gray-500 {
+  color: rgb(107 114 128) !important;
+}
+
+.dark .text-gray-600 {
+  color: rgb(75 85 99) !important;
+}
+
+/* Card content */
+.dark .card,
+.dark .glass-card,
+.dark .glass-ultra {
+  color: #ffffff;
+}
+
+.dark .card *,
+.dark .glass-card *,
+.dark .glass-ultra * {
+  color: inherit;
+}
+
+/* Buttons */
+.dark .btn-primary {
+  color: #ffffff !important;
+}
+
+.dark .btn-secondary {
+  color: #ffffff !important;
+}
+
+.dark button {
+  color: inherit;
+}
+
+/* Forms */
+.dark input,
+.dark textarea,
+.dark select {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Code blocks */
+.dark code,
+.dark pre {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Tables */
+.dark table,
+.dark th,
+.dark td {
+  color: #ffffff;
+}
+
+/* Navigation */
+.dark nav,
+.dark nav * {
+  color: inherit;
+}
+
+/* Footer */
+.dark footer,
+.dark footer * {
+  color: inherit;
+}
+
+/* Ensure black text in light mode buttons/elements */
+.dark .text-gray-900 {
+  color: rgb(17 24 39) !important;
+}
+
+/* Fix for any remaining black text issues */
+.dark *:not(.text-gray-900):not(.text-black):not(.btn-primary):not([class*="text-gray-9"]) {
+  color: inherit;
+}

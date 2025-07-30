@@ -1,0 +1,33 @@
+# Security Policy for WebCraft Agency
+# If you have discovered a security vulnerability, please report it to us.
+
+Contact: security@webcraft-agency.com
+Contact: https://www.webcraft-agency.com/security
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: fr, en
+Canonical: https://www.webcraft-agency.com/.well-known/security.txt
+Policy: https://www.webcraft-agency.com/security-policy
+Hiring: https://www.webcraft-agency.com/careers
+Acknowledgments: https://www.webcraft-agency.com/security/acknowledgments
+Encryption: https://www.webcraft-agency.com/pgp-key.txt
+
+# PGP Key Fingerprint
+# 1234 5678 90AB CDEF 1234 5678 90AB CDEF 1234 5678
+
+# Bug Bounty Program
+# We offer rewards for responsible disclosure of security vulnerabilities.
+# Details: https://www.webcraft-agency.com/bug-bounty
+
+# Vulnerability Disclosure Timeline
+# - Initial Response: Within 24 hours
+# - Confirmation: Within 72 hours
+# - Resolution Target: 30-90 days depending on severity
+
+# Severity Levels
+# Critical: Immediate response required
+# High: Response within 24 hours
+# Medium: Response within 72 hours
+# Low: Response within 7 days
+
+# Please use responsible disclosure practices.
+# Do not publicly disclose vulnerabilities before they are fixed.

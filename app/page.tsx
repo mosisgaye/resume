@@ -1,103 +1,121 @@
-import Image from "next/image";
+'use client';
+
+import React, { useEffect, useState, Suspense } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { usePerformance } from '@/hooks/use-performance';
+import Header from '@/components/header';
+import Hero from '@/components/Hero';
+import { shouldReduceMotion } from '@/lib/mobile-utils';
+
+// Composants dynamiques
+const Skills = React.lazy(() => import('@/components/Skills'));
+const Services = React.lazy(() => import('@/components/Services'));
+const Projects = React.lazy(() => import('@/components/Projects'));
+const Contact = React.lazy(() => import('@/components/Contact'));
+const Footer = React.lazy(() => import('@/components/Footer'));
+
+// Fallback de chargement léger
+const SectionLoading = () => (
+  <div className="h-[40vh] flex items-center justify-center">
+    <div className="h-8 w-8 border-4 border-beige-400 border-l-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const isMobile = useIsMobile();
+  usePerformance();
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  
+  useEffect(() => {
+    // Initialisation du thème
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' || 'dark';
+    setTheme(savedTheme);
+    
+    // Appliquer le thème au document
+    document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    
+    // Vérifier la préférence de réduction de mouvement
+    setReduceMotion(shouldReduceMotion());
+    
+    // Marquer comme chargé
+    setIsLoaded(true);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+    // Écouter les changements de préférence système
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      const newTheme = e.matches ? 'dark' : 'light';
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+      document.documentElement.classList.toggle('dark', e.matches);
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Gestion de la navigation interne
+  const handleNavigation = (path: string) => {
+    if (path.startsWith('#')) {
+      const element = document.querySelector(path);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: reduceMotion ? 'auto' : 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col antialiased">
+      <Header theme={theme} setTheme={setTheme} onNavigate={handleNavigation} />
+      <main>
+        <Hero />
+        
+        <Suspense fallback={<SectionLoading />}>
+          <Skills />
+        </Suspense>
+        
+        <Suspense fallback={<SectionLoading />}>
+          <Services />
+        </Suspense>
+        
+        <Suspense fallback={<SectionLoading />}>
+          <Projects />
+        </Suspense>
+        
+        <Suspense fallback={<SectionLoading />}>
+          <Contact />
+        </Suspense>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      
+      <Suspense fallback={<div className="h-20" />}>
+        <Footer />
+      </Suspense>
+      
+      {/* Bouton de chat flottant - rendu conditionnel */}
+      
+      
+      {/* Arrière-plan optimisé pour mobile */}
+      <div className="fixed -z-10 top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute w-[60vw] h-[60vw] md:w-[80vw] md:h-[80vw] rounded-full bg-beige-400/5 blur-3xl top-[-30vh] left-[-30vw] animate-float will-change-transform"
+          style={{ 
+            animationDelay: '0s',
+            transform: 'translateZ(0)'
+          }}
+        />
+        <div 
+          className="absolute w-[40vw] h-[40vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gray-500/5 blur-3xl bottom-[-20vh] right-[-20vw] animate-float will-change-transform"
+          style={{ 
+            animationDelay: '-2s',
+            transform: 'translateZ(0)'
+          }}
+        />
+      </div>
     </div>
   );
 }

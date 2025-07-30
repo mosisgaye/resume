@@ -1,0 +1,97 @@
+# WebCraft Agency Robots.txt
+# https://www.webcraft-agency.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*utm_*
+Disallow: /*?*ref=*
+Crawl-delay: 1
+
+# Googlebot specific
+User-agent: Googlebot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 0
+
+# Googlebot Image
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /og-image.jpg
+Allow: /logo.png
+Disallow: /private/
+
+# Bingbot specific
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# AdsBot (Google Ads)
+User-agent: AdsBot-Google
+Allow: /
+
+# Social Media Bots
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 0
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: WhatsApp
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slackbot
+Allow: /
+Crawl-delay: 1
+
+# SEO Tools
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 1
+
+# Bad bots
+User-agent: SemrushBot-SA
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Sitemaps
+Sitemap: https://www.webcraft-agency.com/sitemap.xml
+Sitemap: https://www.webcraft-agency.com/sitemap-index.xml
+Sitemap: https://www.webcraft-agency.com/news-sitemap.xml
+Sitemap: https://www.webcraft-agency.com/video-sitemap.xml
+Sitemap: https://www.webcraft-agency.com/image-sitemap.xml
+
+# Host preference
+Host: https://www.webcraft-agency.com

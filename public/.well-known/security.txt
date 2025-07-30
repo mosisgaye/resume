@@ -1,0 +1,12 @@
+# Security Policy for WebCraft Agency
+# If you have discovered a security vulnerability, please report it to us.
+
+Contact: security@webcraft-agency.com
+Contact: https://www.webcraft-agency.com/security
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: fr, en
+Canonical: https://www.webcraft-agency.com/.well-known/security.txt
+Policy: https://www.webcraft-agency.com/security-policy
+Hiring: https://www.webcraft-agency.com/careers
+Acknowledgments: https://www.webcraft-agency.com/security/acknowledgments
+Encryption: https://www.webcraft-agency.com/pgp-key.txt
