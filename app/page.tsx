@@ -30,11 +30,18 @@ export default function Home() {
   
   useEffect(() => {
     // Initialisation du thème
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' || 'dark';
-    setTheme(savedTheme);
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme as 'light' | 'dark' || (prefersDark ? 'dark' : 'light');
     
-    // Appliquer le thème au document
-    document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    setTheme(initialTheme);
+    
+    // Appliquer le thème au document immédiatement
+    if (initialTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
     
     // Vérifier la préférence de réduction de mouvement
     setReduceMotion(shouldReduceMotion());
@@ -42,18 +49,18 @@ export default function Home() {
     // Marquer comme chargé
     setIsLoaded(true);
 
-    // Écouter les changements de préférence système
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      const newTheme = e.matches ? 'dark' : 'light';
-      setTheme(newTheme);
-      localStorage.setItem('theme', newTheme);
-      document.documentElement.classList.toggle('dark', e.matches);
-    };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    // Écouter les changements de préférence système seulement si pas de thème sauvegardé
+    if (!savedTheme) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = (e: MediaQueryListEvent) => {
+        const newTheme = e.matches ? 'dark' : 'light';
+        setTheme(newTheme);
+        document.documentElement.classList.toggle('dark', e.matches);
+      };
+      
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
   }, []);
 
   // Gestion de la navigation interne

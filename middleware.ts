@@ -19,8 +19,8 @@ export function middleware(request: NextRequest) {
     'Content-Security-Policy',
     "default-src 'self'; " +
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://static.hotjar.com; " +
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
-    "font-src 'self' https://fonts.gstatic.com data:; " +
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; " +
+    "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com data:; " +
     "img-src 'self' data: https: blob:; " +
     "connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://www.facebook.com; " +
     "frame-src 'self' https://www.youtube.com https://www.google.com; " +

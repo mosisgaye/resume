@@ -3,6 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedText from './ui/AnimatedText';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
@@ -53,7 +54,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden pt-16 md:pt-20"
     >
       {/* Modern animated background */}
       <div className="absolute inset-0 -z-10">
@@ -163,14 +164,16 @@ const Hero = () => {
             {/* Image with modern frame */}
             <div className="relative z-10 rounded-full border-2 border-beige-400/30 shadow-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-30 z-20"></div>
-              <img
-                src="/lovable-uploads/9443308f-3e51-4cca-a797-d2666d82f27d.png"
-                alt="Web Élégantes Developer Portrait"
+              <Image
+                src="/images/mosis.jpeg"
+                alt="Moussa Gaye - Développeur Fullstack"
                 className="relative z-10 object-cover w-[200px] h-[200px] xs:w-[250px] xs:h-[250px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[340px] lg:h-[340px] aspect-square"
                 width={340}
                 height={340}
-                loading="eager"
-                fetchPriority="high"
+                priority
+                quality={90}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAPAA8DASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAQQBBAMBAAAAAAAAAAAAAQACAwQRBRIhMQYTFEH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABkRAAIDAQAAAAAAAAAAAAAAAAABAgMRIf/aAAwDAQACEQMRAD8AMvG5Jq0DmODfbxkDHRVB8s3Ekt2luG8ds9pRIWFStn/2Q=="
               />
             </div>
           </div>

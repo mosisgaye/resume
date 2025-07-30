@@ -27,7 +27,7 @@ const projectsShowcase: ProjectData[] = [
     image: "/images/optimized/compareprix.webp",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "API REST"],
     features: ["Comparaison en temps réel", "Filtres intelligents", "Recommandations personnalisées"],
-    preview: "https://compareprix.com",
+    preview: "https://ComparePrix.net",
   },
   {
     id: 2,
@@ -47,8 +47,7 @@ const projectsShowcase: ProjectData[] = [
     image: "/images/optimized/simss.webp",
     technologies: ["React", "Redux", "Node.js", "PostgreSQL", "Stripe"],
     features: ["Panier dynamique", "Checkout sécurisé", "Gestion des stocks", "Reviews clients"],
-    github: "https://github.com/username/simss",
-    preview: "https://simss.com",
+    preview: "https://simss.nl",
   },
   {
     id: 4,
@@ -68,8 +67,8 @@ const projectsShowcase: ProjectData[] = [
     image: "/images/optimized/vader.webp",
     technologies: ["React", "Firebase", "Material UI", "Google Calendar API", "Zoom API"],
     features: ["Réservation en ligne", "Vidéo consultations", "Suivi des progrès", "Blog intégré"],
-    github: "https://github.com/username/vaderhart",
-    preview: "https://vaderhart.com",
+    github: "https://github.com/mosisgaye/vader",
+    preview: "https://vader-delta.vercel.app",
   }
 ];
 
@@ -124,7 +123,8 @@ const ProjectShowcase = () => {
             <div className="relative h-[300px] sm:h-[350px] overflow-hidden bg-gray-100 dark:bg-gray-800">
               <div 
                 className={cn(
-                  "absolute inset-0 transition-transform duration-[10000ms] ease-in-out",
+                  "absolute inset-0 transition-transform ease-in-out",
+                  "duration-[10000ms]",
                   hoveredProject === project.id ? "transform-gpu" : ""
                 )}
                 style={{

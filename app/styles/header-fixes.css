@@ -1,0 +1,54 @@
+/* Header spacing fixes */
+/* Ensure proper spacing for fixed header */
+.pt-header {
+  padding-top: 64px;
+}
+
+@media (min-width: 768px) {
+  .pt-header {
+    padding-top: 80px;
+  }
+}
+
+/* Prevent header overlap on mobile */
+@media (max-width: 767px) {
+  main {
+    min-height: calc(100vh - 64px);
+  }
+}
+
+/* Smooth scroll behavior with offset */
+html {
+  scroll-padding-top: 80px;
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 64px;
+  }
+}
+
+/* Glass effect improvements */
+.glass-dark {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.98);
+  }
+}
+
+/* Header transition improvements */
+.header-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile menu improvements */
+@media (max-width: 767px) {
+  .mobile-menu-open body {
+    overflow: hidden;
+  }
+}

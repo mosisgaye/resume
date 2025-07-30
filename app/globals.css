@@ -1,14 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Import Inter font */
-@import url('https://rsms.me/inter/inter.css');
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import './styles/responsive.css';
 @import './styles/projects.css';
 @import './styles/modern-design.css';
 @import './styles/light-mode-fixes.css';
 @import './styles/dark-mode-fixes.css';
+@import './styles/header-fixes.css';
+@import './styles/header-modern.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 
@@ -158,6 +160,17 @@
   
   .animate-marquee {
     animation: marquee 30s linear infinite;
+  }
+  
+  /* Gradient animation */
+  @keyframes gradient-x {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+  }
+  
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+    background-size: 200% 200%;
   }
 }
 

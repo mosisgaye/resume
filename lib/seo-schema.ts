@@ -18,7 +18,7 @@ export const organizationSchema = {
     "https://www.webcraft-agency.com/logo-wide.png"
   ],
   "description": "Agence web spécialisée dans le développement d'applications web modernes, sites e-commerce, et solutions digitales sur mesure.",
-  "email": "contact@webcraft-agency.com",
+  "email": "moussgaye0@gmail.com",
   "telephone": "+33-1-23-45-67-89",
   "faxNumber": "+33-1-23-45-67-90",
   "address": {

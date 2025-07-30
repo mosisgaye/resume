@@ -150,7 +150,7 @@ export const baseMetadata: Metadata = {
     yandex: 'yandex-verification-code',
     yahoo: 'yahoo-site-verification-code',
     other: {
-      me: ['contact@webcraft-agency.com', 'https://webcraft-agency.com'],
+      me: ['moussgaye0@gmail.com', 'https://webcraft-agency.com'],
       'facebook-domain-verification': 'facebook-domain-verification-code',
       'norton-safeweb-site-verification': 'norton-verification-code',
       'msvalidate.01': 'bing-site-verification-code'

@@ -19,7 +19,7 @@ export const projectsData: ProjectType[] = [
     dimensions: { width: 800, height: 500 },
     technologies: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
     github: "https://github.com",
-    preview: "https://example.com/compareprix"
+    preview: "https://ComparePrix.net"
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const projectsData: ProjectType[] = [
     dimensions: { width: 800, height: 500 },
     technologies: ["Shopify", "JavaScript", "CSS", "Payment API"],
     github: "https://github.com",
-    preview: "https://example.com/simss"
+    preview: "https://simss.nl"
   },
   {
     id: 3,
@@ -66,7 +66,7 @@ export const projectsData: ProjectType[] = [
     mobileSrc: "/images/optimized/vader.webp",
     dimensions: { width: 800, height: 500 },
     technologies: ["React", "Node.js", "MongoDB", "Express"],
-    github: "https://github.com",
-    preview: "https://example.com/vaderhart"
+    github: "https://github.com/mosisgaye/vader",
+    preview: "https://vader-delta.vercel.app"
   }
 ];

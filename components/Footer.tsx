@@ -24,15 +24,19 @@ const Footer = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
           <div className="">
-            <a href="#home" className="flex items-center gap-2">
-              {/* Logo WC */}
+            <a href="#home" className="flex items-center gap-3 group">
+              {/* Logo MG */}
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded blur opacity-30"></div>
-                <div className="relative w-8 h-8 rounded glass-ultra border border-white/10 flex items-center justify-center">
-                  <span className="font-bold text-sm text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">WC</span>
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+                <div className="relative w-10 h-10 rounded-lg glass-ultra border border-white/10 flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20"></div>
+                  <span className="relative font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">MG</span>
                 </div>
               </div>
-              <span className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 neon-text">WebCraft Agency</span>
+              <div className="flex flex-col leading-tight">
+                <span className="text-xl font-bold text-white">Moussa</span>
+                <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Gaye</span>
+              </div>
             </a>
           </div>
           
@@ -94,7 +98,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/10 text-center text-xs sm:text-sm text-gray-400">
-          <p>© {currentYear} WebCraft Agency. Tous droits réservés.</p>
+          <p>© {currentYear} Moussa Gaye. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

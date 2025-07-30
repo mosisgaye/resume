@@ -33,30 +33,34 @@ export const DesktopNavigation = ({ onNavigate }: DesktopNavigationProps) => {
 
   return (
     <nav className="flex items-center justify-center w-full">
-      <ul className="flex items-center justify-center space-x-10">
-        {navLinks.map((link) => (
-          <li key={link.title}>
-            {link.isRoute ? (
-              <Link
-                href={link.href}
-                className="text-lg font-medium transition-all duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400"
-              >
-                {link.title}
-              </Link>
-            ) : (
-              <Link
-                href={link.href}
-                className="text-lg font-medium transition-all duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-              >
-                {link.title}
-              </Link>
-            )}
-          </li>
-        ))}
+      <ul className="flex items-center justify-center gap-2">
+        {navLinks.map((link) => {
+          const isActive = pathname === link.href || (link.href.startsWith('#') && pathname === '/');
+          
+          return (
+            <li key={link.title}>
+              {link.isRoute ? (
+                <Link
+                  href={link.href}
+                  className={`nav-link ${isActive ? 'active' : ''}`}
+                >
+                  {link.title}
+                </Link>
+              ) : (
+                <Link
+                  href={link.href}
+                  className={`nav-link ${isActive ? 'active' : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                >
+                  {link.title}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

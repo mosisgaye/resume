@@ -100,9 +100,9 @@ export const usePerformance = () => {
 
   // Précharger les ressources critiques
   const preloadCriticalResources = useCallback(() => {
-    // Précharger les fonts
+    // Précharger les fonts Google Fonts
     const fontLinks = [
-      'https://rsms.me/inter/inter.css',
+      'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap',
     ];
 
     fontLinks.forEach((href) => {
@@ -110,6 +110,7 @@ export const usePerformance = () => {
       link.rel = 'preload';
       link.as = 'style';
       link.href = href;
+      link.crossOrigin = 'anonymous';
       document.head.appendChild(link);
     });
 

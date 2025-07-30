@@ -92,7 +92,7 @@ export const MobileMenu = ({
       <div
         id="mobile-menu"
         className={cn(
-          "fixed inset-0 top-[60px] bg-background/95 backdrop-blur-lg transition-all duration-300 lg:hidden z-50",
+          "fixed inset-0 top-[60px] bg-background/95 backdrop-blur-lg transition-all duration-300 lg:hidden z-[100]",
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
         aria-hidden={!mobileMenuOpen}
