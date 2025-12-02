@@ -97,7 +97,7 @@ export default function ServicesSenegal() {
                 <Link href="/#contact" className="btn-primary inline-flex items-center">
                   Demander un Devis Gratuit
                 </Link>
-                <a href="https://wa.me/221606213027" className="btn-secondary inline-flex items-center">
+                <a href="https://wa.me/212606213027" className="btn-secondary inline-flex items-center">
                   <Phone className="mr-2 h-5 w-5" />
                   WhatsApp
                 </a>

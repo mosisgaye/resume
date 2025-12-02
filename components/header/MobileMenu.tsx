@@ -143,7 +143,7 @@ export const MobileMenu = ({
               <div className="mt-10 space-y-4 w-full md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                 <h3 className="text-md font-medium text-muted-foreground mb-2 md:text-lg md:col-span-2" id="contact-heading">Contact</h3>
                 <a 
-                  href="https://wa.me/21606213027" 
+                  href="https://wa.me/212606213027" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}

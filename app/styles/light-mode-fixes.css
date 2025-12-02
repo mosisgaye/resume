@@ -1,299 +1,881 @@
-/* Light Mode Comprehensive Fixes */
+/* ============================================
+   LIGHT MODE - COMPLETE DESIGN SYSTEM
+   Premium Light Theme - Clean & Professional
+   ============================================ */
 
-/* Base colors for better contrast */
+/* CSS Variables for Light Mode */
+:root {
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f8fafc;
+  --light-bg-tertiary: #f1f5f9;
+  --light-bg-card: #ffffff;
+  --light-text-primary: #1e293b;
+  --light-text-secondary: #475569;
+  --light-text-muted: #64748b;
+  --light-border: #e2e8f0;
+  --light-border-hover: #cbd5e1;
+  --light-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --light-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
 body:not(.dark) {
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --border-color: #e2e8f0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%) !important;
+  color: var(--light-text-primary) !important;
 }
 
-/* Global text colors */
-body:not(.dark) * {
-  color: var(--text-secondary);
-}
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
 
-/* Headings - natural weight without forced contrast */
 body:not(.dark) h1,
 body:not(.dark) h2,
 body:not(.dark) h3,
 body:not(.dark) h4,
 body:not(.dark) h5,
 body:not(.dark) h6 {
-  color: var(--text-primary) !important;
+  color: var(--light-text-primary) !important;
 }
 
-/* Paragraphs and regular text */
 body:not(.dark) p,
-body:not(.dark) .text-base,
-body:not(.dark) .text-sm,
-body:not(.dark) .text-lg {
-  color: var(--text-secondary) !important;
-  line-height: 1.7;
+body:not(.dark) span:not(.text-transparent),
+body:not(.dark) div:not([class*="bg-gradient"]) {
+  color: var(--light-text-secondary);
 }
 
-/* Muted text */
-body:not(.dark) .text-muted,
-body:not(.dark) .text-muted-foreground,
-body:not(.dark) .text-gray-400,
-body:not(.dark) .text-gray-500,
-body:not(.dark) .text-gray-600 {
-  color: var(--text-muted) !important;
+body:not(.dark) .text-white {
+  color: var(--light-text-primary) !important;
 }
 
-/* Links */
-body:not(.dark) a:not(.btn-primary):not(.btn-secondary) {
+body:not(.dark) .text-gray-300,
+body:not(.dark) .text-gray-400 {
+  color: var(--light-text-secondary) !important;
+}
+
+body:not(.dark) .text-gray-500 {
+  color: var(--light-text-muted) !important;
+}
+
+/* ============================================
+   HEADER & NAVIGATION - Premium Light Design
+   ============================================ */
+
+body:not(.dark) header {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+body:not(.dark) header.bg-slate-900\/80,
+body:not(.dark) header[class*="bg-slate"],
+body:not(.dark) header[class*="bg-transparent"] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Navigation Links */
+body:not(.dark) header a,
+body:not(.dark) nav a,
+body:not(.dark) .nav-link {
+  color: var(--light-text-secondary) !important;
+  transition: color 0.2s ease !important;
+}
+
+body:not(.dark) header a:hover,
+body:not(.dark) nav a:hover,
+body:not(.dark) .nav-link:hover {
   color: #7c3aed !important;
 }
 
-body:not(.dark) a:not(.btn-primary):not(.btn-secondary):hover {
-  color: #6d28d9 !important;
-  text-decoration: underline;
+body:not(.dark) .nav-link.active {
+  color: #7c3aed !important;
+  background: rgba(124, 58, 237, 0.1) !important;
 }
 
-/* Glass morphism adjustments */
-body:not(.dark) .glass-ultra,
-body:not(.dark) [class*="glass-"] {
-  background: rgba(255, 255, 255, 0.98) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  border: 1px solid var(--border-color) !important;
-  box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.02),
-    0 4px 8px rgba(0, 0, 0, 0.04) !important;
+/* Header Logo - Premium MG */
+body:not(.dark) header .text-transparent.bg-clip-text {
+  filter: none !important;
+  background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
 }
 
-/* Cards */
-body:not(.dark) .card,
-body:not(.dark) [class*="rounded-"] {
-  background-color: var(--bg-primary);
-  border-color: var(--border-color);
+body:not(.dark) header .text-white,
+body:not(.dark) header .text-xl.font-bold {
+  color: var(--light-text-primary) !important;
 }
 
-/* Buttons with proper contrast */
-body:not(.dark) .btn-primary {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+/* Logo container background for light mode */
+body:not(.dark) header .bg-slate-900 {
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+body:not(.dark) header .from-purple-900\/50 {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, #ffffff 50%, rgba(236, 72, 153, 0.08) 100%) !important;
+}
+
+/* Logo glow - more subtle in light mode */
+body:not(.dark) header .blur-lg.opacity-40 {
+  opacity: 0.25 !important;
+}
+
+body:not(.dark) header .group:hover .blur-lg {
+  opacity: 0.4 !important;
+}
+
+/* WhatsApp Button in Header */
+body:not(.dark) header a[href*="wa.me"] {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
   color: white !important;
-  font-weight: 600;
-  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25) !important;
 }
 
-body:not(.dark) .btn-primary:hover {
-  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
-  box-shadow: 0 4px 8px rgba(139, 92, 246, 0.35);
+body:not(.dark) header a[href*="wa.me"]:hover {
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35) !important;
+  transform: translateY(-1px) !important;
 }
 
-body:not(.dark) .btn-secondary {
-  background: var(--bg-secondary) !important;
-  color: var(--text-primary) !important;
-  border: 1px solid var(--border-color) !important;
-  font-weight: 600;
+/* Mobile Menu Button */
+body:not(.dark) header button {
+  color: var(--light-text-primary) !important;
 }
 
-body:not(.dark) .btn-secondary:hover {
-  background: #f1f5f9 !important;
-  border-color: #cbd5e1 !important;
+body:not(.dark) header button:hover {
+  background: rgba(0, 0, 0, 0.04) !important;
 }
 
-/* Form inputs */
-body:not(.dark) input,
-body:not(.dark) textarea,
-body:not(.dark) select {
-  background: var(--bg-primary) !important;
-  border: 1px solid var(--border-color) !important;
-  color: var(--text-primary) !important;
-}
-
-body:not(.dark) input::placeholder,
-body:not(.dark) textarea::placeholder {
-  color: var(--text-muted) !important;
-}
-
-body:not(.dark) input:focus,
-body:not(.dark) textarea:focus,
-body:not(.dark) select:focus {
-  border-color: #a78bfa !important;
-  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1) !important;
-}
-
-/* Navigation */
-body:not(.dark) nav,
-body:not(.dark) header {
+/* Mobile Menu */
+body:not(.dark) #mobile-menu {
   background: rgba(255, 255, 255, 0.98) !important;
-  border-bottom: 1px solid var(--border-color) !important;
 }
 
-body:not(.dark) nav a,
-body:not(.dark) header a {
-  color: var(--text-secondary) !important;
-  font-weight: 500;
+body:not(.dark) #mobile-menu .text-muted-foreground {
+  color: var(--light-text-muted) !important;
 }
 
-body:not(.dark) nav a:hover,
-body:not(.dark) header a:hover,
-body:not(.dark) nav a.active,
-body:not(.dark) header a.active {
-  color: var(--text-primary) !important;
+body:not(.dark) #mobile-menu button,
+body:not(.dark) #mobile-menu a {
+  color: var(--light-text-primary) !important;
 }
 
-/* Gradient text */
-body:not(.dark) .text-transparent.bg-clip-text {
-  filter: brightness(0.6) contrast(1.2) !important;
+body:not(.dark) #mobile-menu button:hover,
+body:not(.dark) #mobile-menu a:hover {
+  background: rgba(124, 58, 237, 0.08) !important;
+  color: #7c3aed !important;
 }
 
-/* Code blocks */
-body:not(.dark) code,
-body:not(.dark) pre {
+body:not(.dark) #mobile-menu .border-border\/40 {
+  border-color: var(--light-border) !important;
+}
+
+/* ============================================
+   HERO SECTION - Premium Light Design
+   ============================================ */
+
+body:not(.dark) #home,
+body:not(.dark) section#home {
+  background: linear-gradient(180deg,
+    #ffffff 0%,
+    #fafbfc 30%,
+    #f8fafc 60%,
+    #f1f5f9 100%) !important;
+}
+
+body:not(.dark) #home .bg-gradient-to-br.from-slate-900 {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+/* Hero gradient orbs - subtle and elegant for light mode */
+body:not(.dark) #home .bg-gradient-to-r.from-purple-500\/30,
+body:not(.dark) #home .from-purple-500\/30,
+body:not(.dark) #home [class*="blur"][class*="purple"] {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(236, 72, 153, 0.12) 100%) !important;
+  opacity: 0.8 !important;
+}
+
+body:not(.dark) #home .bg-gradient-to-r.from-cyan-500\/20,
+body:not(.dark) #home .from-cyan-500\/20,
+body:not(.dark) #home [class*="blur"][class*="cyan"] {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%) !important;
+  opacity: 0.7 !important;
+}
+
+body:not(.dark) #home .bg-gradient-to-r.from-emerald-500\/15,
+body:not(.dark) #home [class*="blur"][class*="emerald"] {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(20, 184, 166, 0.08) 100%) !important;
+  opacity: 0.7 !important;
+}
+
+/* Status badge - more vibrant */
+body:not(.dark) #home .bg-gradient-to-r.from-emerald-500\/10 {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(20, 184, 166, 0.08) 100%) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+}
+
+body:not(.dark) #home .text-emerald-400 {
+  color: #059669 !important;
+}
+
+body:not(.dark) #home .bg-emerald-400 {
+  background: #10b981 !important;
+}
+
+/* Tech badges - clean card style */
+body:not(.dark) #home .bg-white\/5 {
+  background: white !important;
+  border: 1px solid var(--light-border) !important;
+  box-shadow: var(--light-shadow) !important;
+}
+
+body:not(.dark) #home .text-cyan-400 {
+  color: #0891b2 !important;
+}
+
+body:not(.dark) #home .text-green-400 {
+  color: #16a34a !important;
+}
+
+body:not(.dark) #home .text-yellow-400 {
+  color: #ca8a04 !important;
+}
+
+body:not(.dark) #home .text-blue-400 {
+  color: #2563eb !important;
+}
+
+body:not(.dark) #home .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+body:not(.dark) #home .text-orange-400 {
+  color: #ea580c !important;
+}
+
+/* Hero title text */
+body:not(.dark) #home h1 .text-white,
+body:not(.dark) #home .text-4xl.text-white,
+body:not(.dark) #home .text-5xl.text-white,
+body:not(.dark) #home .text-6xl.text-white {
+  color: var(--light-text-primary) !important;
+}
+
+/* Hero buttons */
+body:not(.dark) #home .bg-gradient-to-r.from-purple-600 {
+  background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%) !important;
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25) !important;
+}
+
+body:not(.dark) #home .bg-gradient-to-r.from-purple-600:hover {
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35) !important;
+}
+
+body:not(.dark) #home button.bg-white\/5,
+body:not(.dark) #home .bg-white\/5[class*="border"],
+body:not(.dark) #home a.bg-white\/5 {
+  background: white !important;
+  border: 1px solid var(--light-border) !important;
+  color: var(--light-text-primary) !important;
+  box-shadow: var(--light-shadow) !important;
+}
+
+body:not(.dark) #home button.bg-white\/5:hover,
+body:not(.dark) #home a.bg-white\/5:hover {
+  background: #f8fafc !important;
+  border-color: var(--light-border-hover) !important;
+}
+
+/* Stats section */
+body:not(.dark) #home .border-t.border-white\/10 {
+  border-color: var(--light-border) !important;
+}
+
+body:not(.dark) #home .text-2xl.font-bold,
+body:not(.dark) #home .text-3xl.font-bold {
+  color: var(--light-text-primary) !important;
+}
+
+/* Profile image container */
+body:not(.dark) #home .border-purple-500\/20 {
+  border-color: rgba(139, 92, 246, 0.35) !important;
+}
+
+body:not(.dark) #home .border-cyan-500\/10 {
+  border-color: rgba(6, 182, 212, 0.25) !important;
+}
+
+/* Floating badges around image */
+body:not(.dark) #home .bg-gradient-to-r.from-purple-500.to-pink-500 {
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35) !important;
+}
+
+body:not(.dark) #home .bg-gradient-to-r.from-cyan-500.to-blue-500 {
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35) !important;
+}
+
+body:not(.dark) #home .bg-gradient-to-r.from-green-500.to-emerald-500 {
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35) !important;
+}
+
+/* Ring animations */
+body:not(.dark) #home .border-purple-500\/30 {
+  border-color: rgba(139, 92, 246, 0.25) !important;
+}
+
+body:not(.dark) #home .border-pink-500\/20 {
+  border-color: rgba(236, 72, 153, 0.2) !important;
+}
+
+/* Hero background gradient override */
+body:not(.dark) #home .bg-gradient-to-br.from-slate-900 {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
+}
+
+/* Hero text - main titles */
+body:not(.dark) #home .text-white\/90 {
+  color: var(--light-text-primary) !important;
+}
+
+/* Hero subtitle/description */
+body:not(.dark) #home .text-gray-300\/90,
+body:not(.dark) #home .text-gray-300 {
+  color: var(--light-text-secondary) !important;
+}
+
+/* Sparkle particles - subtle in light mode */
+body:not(.dark) #home .bg-white.rounded-full.animate-pulse {
+  background: rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Grid pattern - more visible in light mode */
+body:not(.dark) #home [style*="backgroundImage"][style*="linear-gradient"] {
+  opacity: 0.08 !important;
+}
+
+/* ============================================
+   SERVICES SECTION - Premium Light Cards
+   ============================================ */
+
+body:not(.dark) #services {
+  background: linear-gradient(180deg,
+    #f1f5f9 0%,
+    #ffffff 40%,
+    #ffffff 60%,
+    #f8fafc 100%) !important;
+}
+
+body:not(.dark) #services .bg-gradient-to-b.from-slate-900 {
+  background: transparent !important;
+}
+
+/* Service cards - elevated white cards */
+body:not(.dark) #services .bg-slate-800\/50,
+body:not(.dark) #services .bg-slate-800\/30 {
+  background: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+              0 4px 12px rgba(0, 0, 0, 0.03),
+              0 8px 24px rgba(0, 0, 0, 0.02) !important;
+}
+
+body:not(.dark) #services .bg-slate-800\/50:hover,
+body:not(.dark) #services .bg-slate-800\/30:hover {
+  border-color: rgba(124, 58, 237, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05),
+              0 12px 32px rgba(124, 58, 237, 0.08),
+              0 20px 48px rgba(0, 0, 0, 0.04) !important;
+  transform: translateY(-2px) !important;
+}
+
+body:not(.dark) #services .border-slate-700\/50 {
+  border-color: var(--light-border) !important;
+}
+
+body:not(.dark) #services .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+/* Section badge */
+body:not(.dark) #services .bg-purple-500\/10 {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.08) 100%) !important;
+  border-color: rgba(139, 92, 246, 0.25) !important;
+}
+
+/* Service icon containers */
+body:not(.dark) #services [class*="bg-gradient-to-br"] {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Check icons */
+body:not(.dark) #services .text-cyan-400 {
+  color: #0891b2 !important;
+}
+
+body:not(.dark) #services .text-emerald-400 {
+  color: #059669 !important;
+}
+
+body:not(.dark) #services .text-amber-400 {
+  color: #d97706 !important;
+}
+
+/* Feature list items */
+body:not(.dark) #services .bg-slate-700\/30 {
   background: #f1f5f9 !important;
-  color: var(--text-primary) !important;
-  border: 1px solid var(--border-color) !important;
 }
 
-/* Badges */
-body:not(.dark) .badge,
-body:not(.dark) [class*="rounded-full"] {
-  background: var(--bg-secondary);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
+/* ============================================
+   SKILLS SECTION - Interactive Light Design
+   ============================================ */
+
+body:not(.dark) #skills {
+  background: linear-gradient(180deg,
+    #f8fafc 0%,
+    #ffffff 35%,
+    #ffffff 65%,
+    #f8fafc 100%) !important;
 }
 
-/* Scrollbar */
+body:not(.dark) #skills .bg-gradient-to-b.from-slate-900 {
+  background: transparent !important;
+}
+
+/* Skills card container - elevated glass effect */
+body:not(.dark) #skills .bg-slate-800\/30 {
+  background: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+              0 8px 24px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Tab buttons - pill style */
+body:not(.dark) #skills button.bg-slate-800\/50 {
+  background: #f8fafc !important;
+  border: 1px solid var(--light-border) !important;
+  color: var(--light-text-secondary) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+body:not(.dark) #skills button.bg-slate-800\/50:hover {
+  background: #f1f5f9 !important;
+  color: var(--light-text-primary) !important;
+  border-color: var(--light-border-hover) !important;
+}
+
+/* Active tab keeps gradient */
+body:not(.dark) #skills button[class*="bg-gradient-to-r"] {
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Progress bars background */
+body:not(.dark) #skills .bg-slate-700\/50 {
+  background: #e2e8f0 !important;
+  border-radius: 9999px !important;
+}
+
+/* Progress bar fill - keep gradient vibrant */
+body:not(.dark) #skills .bg-gradient-to-r[class*="from-cyan"] {
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.3) !important;
+}
+
+body:not(.dark) #skills .bg-gradient-to-r[class*="from-purple"] {
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.3) !important;
+}
+
+body:not(.dark) #skills .bg-gradient-to-r[class*="from-emerald"] {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Section badge */
+body:not(.dark) #skills .bg-cyan-500\/10 {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.08) 100%) !important;
+  border-color: rgba(6, 182, 212, 0.25) !important;
+}
+
+body:not(.dark) #skills .text-cyan-400 {
+  color: #0891b2 !important;
+}
+
+/* Tech marquee items - clean pills */
+body:not(.dark) #skills .animate-marquee .bg-slate-800\/50 {
+  background: white !important;
+  border: 1px solid var(--light-border) !important;
+  color: var(--light-text-secondary) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Additional skills tags */
+body:not(.dark) #skills .bg-slate-800\/30[class*="rounded-lg"] {
+  background: #f8fafc !important;
+  border: 1px solid var(--light-border) !important;
+}
+
+body:not(.dark) #skills .bg-slate-800\/30[class*="rounded-lg"]:hover {
+  background: #f1f5f9 !important;
+  border-color: rgba(124, 58, 237, 0.2) !important;
+  color: #7c3aed !important;
+}
+
+/* Category icon boxes keep their gradients */
+body:not(.dark) #skills .bg-gradient-to-br {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ============================================
+   PROJECTS SECTION - Showcase Light Design
+   ============================================ */
+
+body:not(.dark) #projects {
+  background: linear-gradient(180deg,
+    #f8fafc 0%,
+    #ffffff 30%,
+    #ffffff 70%,
+    #f1f5f9 100%) !important;
+}
+
+/* Filter buttons - pill style */
+body:not(.dark) #projects button.bg-slate-800\/50 {
+  background: #f8fafc !important;
+  border: 1px solid var(--light-border) !important;
+  color: var(--light-text-secondary) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+body:not(.dark) #projects button.bg-slate-800\/50:hover {
+  background: #f1f5f9 !important;
+  border-color: var(--light-border-hover) !important;
+  color: var(--light-text-primary) !important;
+}
+
+/* Active filter keeps gradient */
+body:not(.dark) #projects button[class*="bg-gradient-to-r"] {
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25) !important;
+}
+
+/* Project cards - premium elevated style */
+body:not(.dark) #projects .bg-slate-800\/30 {
+  background: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+              0 4px 12px rgba(0, 0, 0, 0.03),
+              0 8px 24px rgba(0, 0, 0, 0.02) !important;
+}
+
+body:not(.dark) #projects .bg-slate-800\/30:hover {
+  border-color: rgba(124, 58, 237, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05),
+              0 12px 32px rgba(124, 58, 237, 0.06),
+              0 20px 48px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Image container background */
+body:not(.dark) #projects .bg-slate-900 {
+  background: #f1f5f9 !important;
+}
+
+/* Technology tags - subtle pills */
+body:not(.dark) #projects .bg-slate-700\/50 {
+  background: #f1f5f9 !important;
+  color: var(--light-text-secondary) !important;
+  border: 1px solid var(--light-border) !important;
+}
+
+/* Action buttons */
+body:not(.dark) #projects a.bg-slate-700\/50 {
+  background: #f8fafc !important;
+  border: 1px solid var(--light-border) !important;
+  color: var(--light-text-secondary) !important;
+}
+
+body:not(.dark) #projects a.bg-slate-700\/50:hover {
+  background: #f1f5f9 !important;
+  color: var(--light-text-primary) !important;
+  border-color: var(--light-border-hover) !important;
+}
+
+/* Quick link button */
+body:not(.dark) #projects .bg-white\/10 {
+  background: white !important;
+  border: 1px solid var(--light-border) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+body:not(.dark) #projects .bg-white\/10:hover {
+  background: #f8fafc !important;
+}
+
+/* Project card title hover effect */
+body:not(.dark) #projects h3.text-white {
+  color: var(--light-text-primary) !important;
+}
+
+/* Keep gradient badges */
+body:not(.dark) #projects [class*="bg-gradient-to-r"][class*="text-white"] {
+  color: white !important;
+}
+
+/* Feature dots keep gradients */
+body:not(.dark) #projects .w-1.h-1[class*="bg-gradient"] {
+  opacity: 1 !important;
+}
+
+/* Image overlay - very subtle for light mode */
+body:not(.dark) #projects .bg-gradient-to-t[class*="from-slate-900"] {
+  background: linear-gradient(to top,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    transparent 100%) !important;
+}
+
+/* Image container - no dark background */
+body:not(.dark) #projects .overflow-hidden.bg-slate-900 {
+  background: #f1f5f9 !important;
+}
+
+/* Image styling for light mode */
+body:not(.dark) #projects img {
+  filter: none !important;
+}
+
+/* ============================================
+   CONTACT SECTION - Clean Light Design
+   ============================================ */
+
+body:not(.dark) #contact {
+  background: linear-gradient(180deg,
+    #f1f5f9 0%,
+    #f8fafc 50%,
+    #ffffff 100%) !important;
+}
+
+body:not(.dark) #contact .bg-slate-800\/50 {
+  background: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+              0 8px 24px rgba(0, 0, 0, 0.04) !important;
+}
+
+body:not(.dark) #contact input,
+body:not(.dark) #contact textarea,
+body:not(.dark) #contact select {
+  background: #f8fafc !important;
+  border: 1px solid var(--light-border) !important;
+  color: var(--light-text-primary) !important;
+}
+
+body:not(.dark) #contact input:focus,
+body:not(.dark) #contact textarea:focus,
+body:not(.dark) #contact select:focus {
+  background: white !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1) !important;
+  outline: none !important;
+}
+
+body:not(.dark) #contact input::placeholder,
+body:not(.dark) #contact textarea::placeholder {
+  color: var(--light-text-muted) !important;
+}
+
+/* Contact info cards */
+body:not(.dark) #contact .bg-slate-700\/30 {
+  background: #f8fafc !important;
+  border: 1px solid var(--light-border) !important;
+}
+
+/* Section badge */
+body:not(.dark) #contact .bg-pink-500\/10 {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(139, 92, 246, 0.08) 100%) !important;
+  border-color: rgba(236, 72, 153, 0.25) !important;
+}
+
+body:not(.dark) #contact .text-pink-400 {
+  color: #db2777 !important;
+}
+
+/* ============================================
+   FOOTER - Elegant Light Design
+   ============================================ */
+
+body:not(.dark) footer {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+  border-top: 1px solid var(--light-border) !important;
+}
+
+body:not(.dark) footer .bg-slate-900 {
+  background: transparent !important;
+}
+
+body:not(.dark) footer .border-slate-800 {
+  border-color: var(--light-border) !important;
+}
+
+body:not(.dark) footer h3 {
+  color: var(--light-text-primary) !important;
+}
+
+body:not(.dark) footer p,
+body:not(.dark) footer span {
+  color: var(--light-text-secondary) !important;
+}
+
+body:not(.dark) footer a {
+  color: var(--light-text-secondary) !important;
+}
+
+body:not(.dark) footer a:hover {
+  color: #7c3aed !important;
+}
+
+/* Social icons - elegant style */
+body:not(.dark) footer .bg-slate-800 {
+  background: #f8fafc !important;
+  border: 1px solid var(--light-border) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+body:not(.dark) footer .bg-slate-800:hover {
+  background: #f1f5f9 !important;
+  border-color: rgba(124, 58, 237, 0.2) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Footer logo glow - more subtle */
+body:not(.dark) footer .bg-gradient-to-r.from-purple-500 {
+  opacity: 0.4 !important;
+}
+
+/* Footer logo box */
+body:not(.dark) footer .bg-slate-800.border-slate-700 {
+  background: white !important;
+  border-color: var(--light-border) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Contact icons in footer */
+body:not(.dark) footer .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+/* Heart icon */
+body:not(.dark) footer .text-pink-500 {
+  color: #ec4899 !important;
+}
+
+/* Bottom bar */
+body:not(.dark) footer .border-t.border-slate-800 {
+  border-color: var(--light-border) !important;
+}
+
+body:not(.dark) footer .text-gray-500 {
+  color: var(--light-text-muted) !important;
+}
+
+/* ============================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   ============================================ */
+
+/* Primary gradient buttons stay the same */
+body:not(.dark) .bg-gradient-to-r.from-purple-600.to-pink-600 {
+  color: white !important;
+}
+
+/* Outline buttons */
+body:not(.dark) button[class*="border-white"] {
+  border-color: var(--light-border) !important;
+  color: var(--light-text-primary) !important;
+}
+
+/* ============================================
+   UTILITY OVERRIDES
+   ============================================ */
+
+body:not(.dark) .bg-slate-900,
+body:not(.dark) .bg-slate-900\/80,
+body:not(.dark) .bg-slate-900\/95 {
+  background: var(--light-bg-primary) !important;
+}
+
+body:not(.dark) .bg-slate-800,
+body:not(.dark) .bg-slate-800\/50,
+body:not(.dark) .bg-slate-800\/30 {
+  background: var(--light-bg-secondary) !important;
+}
+
+body:not(.dark) .border-slate-700,
+body:not(.dark) .border-slate-700\/50,
+body:not(.dark) .border-slate-800,
+body:not(.dark) .border-slate-800\/50 {
+  border-color: var(--light-border) !important;
+}
+
+body:not(.dark) .text-white {
+  color: var(--light-text-primary) !important;
+}
+
+/* Keep gradient text colorful */
+body:not(.dark) .text-transparent.bg-clip-text {
+  color: transparent !important;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+body:not(.dark) ::-webkit-scrollbar {
+  width: 10px;
+}
+
 body:not(.dark) ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--light-bg-secondary);
 }
 
 body:not(.dark) ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border: 3px solid transparent;
-  background-clip: content-box;
+  border-radius: 5px;
 }
 
 body:not(.dark) ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
-  background-clip: content-box;
 }
 
-/* Special sections */
-body:not(.dark) .hero-section {
-  background: linear-gradient(135deg, #fafafa 0%, #f3f4f6 100%);
-}
+/* ============================================
+   ANIMATIONS - Reduced intensity for light mode
+   ============================================ */
 
-/* Icons */
-body:not(.dark) svg {
-  color: currentColor;
-}
-
-body:not(.dark) .lucide {
-  color: var(--text-muted);
-}
-
-/* Borders */
-body:not(.dark) [class*="border-"] {
-  border-color: var(--border-color) !important;
-}
-
-body:not(.dark) .divide-y > * {
-  border-color: var(--border-color) !important;
-}
-
-/* Shadows for depth */
-body:not(.dark) .shadow-sm {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
-}
-
-body:not(.dark) .shadow {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06),
-              0 4px 6px rgba(0, 0, 0, 0.02) !important;
-}
-
-body:not(.dark) .shadow-lg {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08),
-              0 4px 6px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Hover states */
-body:not(.dark) [class*="hover:bg-"]:hover {
-  background-color: var(--bg-secondary) !important;
-}
-
-/* Active states */
-body:not(.dark) [class*="active:bg-"]:active {
-  background-color: #e2e8f0 !important;
-}
-
-/* Focus states */
-body:not(.dark) [class*="focus:ring-"] {
-  --tw-ring-color: rgba(167, 139, 250, 0.5);
-}
-
-/* Tables */
-body:not(.dark) table {
-  background: var(--bg-primary);
-}
-
-body:not(.dark) th {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-body:not(.dark) td {
-  color: var(--text-secondary);
-  border-color: var(--border-color);
-}
-
-/* Tooltips */
-body:not(.dark) [role="tooltip"] {
-  background: var(--text-primary) !important;
-  color: white !important;
-}
-
-/* Loading states */
 body:not(.dark) .animate-pulse {
-  background: linear-gradient(90deg, 
-    var(--bg-secondary) 0%, 
-    #e2e8f0 50%, 
-    var(--bg-secondary) 100%);
+  animation: pulse-light 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Specific component fixes */
-body:not(.dark) .modern-card {
-  background: var(--bg-primary) !important;
-  border: 1px solid var(--border-color) !important;
+@keyframes pulse-light {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
-body:not(.dark) .pattern-dots {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px) !important;
+/* ============================================
+   BACKDROP & BLUR EFFECTS
+   ============================================ */
+
+body:not(.dark) .backdrop-blur-sm,
+body:not(.dark) .backdrop-blur-xl {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
 }
 
-/* Blog cards */
-body:not(.dark) article {
-  background: var(--bg-primary) !important;
-  border: 1px solid var(--border-color) !important;
-}
+/* ============================================
+   SELECTION
+   ============================================ */
 
-body:not(.dark) article h2,
-body:not(.dark) article h3 {
-  color: var(--text-primary) !important;
-}
-
-body:not(.dark) article p {
-  color: var(--text-secondary) !important;
-}
-
-/* Footer */
-body:not(.dark) footer {
-  background: var(--bg-secondary) !important;
-  border-top: 1px solid var(--border-color) !important;
-}
-
-body:not(.dark) footer * {
-  color: var(--text-secondary) !important;
-}
-
-/* Ensure all text is readable */
-body:not(.dark) *:not(.text-transparent) {
-  min-contrast: 4.5;
+body:not(.dark) ::selection {
+  background: rgba(124, 58, 237, 0.2) !important;
+  color: var(--light-text-primary) !important;
 }

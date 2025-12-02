@@ -1,141 +1,208 @@
+'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import AnimatedCard from './ui/AnimatedCard';
-import ServiceCircuitConnections from './services/ServiceCircuitConnections';
-import ServiceCardStyles from './services/ServiceCardStyles';
-import { Code2, Wrench, Zap, Cloud } from 'lucide-react';
+import { Code2, Wrench, Zap, Cloud, ArrowRight, Check } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const Services = () => {
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
+
   const services = [
     {
       id: 1,
       icon: Code2,
       title: "Développement Web Fullstack",
-      description: "Création d'interfaces captivantes et implémentation d'une logique métier optimisée pour des applications web performantes et évolutives.",
+      description: "Applications web modernes et performantes avec les dernières technologies.",
+      gradient: "from-cyan-500 to-blue-600",
+      shadowColor: "shadow-cyan-500/20",
       features: [
-        "Applications web réactives et performantes",
-        "Architecture moderne et modulaire",
-        "Expérience utilisateur intuitive et élégante",
-        "Optimisation pour le référencement (SEO)"
+        "Applications React/Next.js",
+        "Architecture scalable",
+        "UX/UI moderne",
+        "SEO optimisé"
       ]
     },
     {
       id: 2,
       icon: Wrench,
       title: "Maintenance & Évolution",
-      description: "Suivi technologique constant et améliorations continues pour garantir la pérennité et la compétitivité de vos solutions digitales.",
+      description: "Support continu et améliorations pour vos applications existantes.",
+      gradient: "from-purple-500 to-pink-600",
+      shadowColor: "shadow-purple-500/20",
       features: [
-        "Mises à jour de sécurité régulières",
-        "Corrections de bugs et optimisations",
-        "Ajout de nouvelles fonctionnalités",
-        "Amélioration continue des performances"
+        "Mises à jour sécurité",
+        "Optimisation performance",
+        "Nouvelles fonctionnalités",
+        "Support technique"
       ]
     },
     {
       id: 3,
       icon: Zap,
-      title: "Automatisation des Processus",
-      description: "Développement de scripts et d'outils personnalisés pour réduire les tâches répétitives et libérer du temps pour des activités à plus forte valeur ajoutée.",
+      title: "Automatisation",
+      description: "Automatisez vos processus pour gagner en efficacité.",
+      gradient: "from-amber-500 to-orange-600",
+      shadowColor: "shadow-amber-500/20",
       features: [
-        "Automatisation des tâches répétitives",
-        "Intégration entre différents services",
-        "Workflows de traitement de données",
-        "Tableaux de bord et rapports automatisés"
+        "Workflows automatisés",
+        "Intégrations API",
+        "Scripts personnalisés",
+        "Rapports automatiques"
       ]
     },
     {
       id: 4,
       icon: Cloud,
-      title: "Infrastructure Scalable",
-      description: "Mise en place et optimisation des ressources cloud pour garantir des performances optimales tout en maîtrisant les coûts.",
+      title: "Infrastructure Cloud",
+      description: "Déploiement et gestion d'infrastructures cloud performantes.",
+      gradient: "from-emerald-500 to-teal-600",
+      shadowColor: "shadow-emerald-500/20",
       features: [
-        "Déploiement sur infrastructures cloud",
-        "Containerisation avec Docker",
-        "Pipelines CI/CD pour déploiements automatisés",
-        "Monitoring et alerting proactif"
+        "AWS / DigitalOcean",
+        "Docker & Kubernetes",
+        "CI/CD pipelines",
+        "Monitoring 24/7"
       ]
     }
   ];
 
   return (
-    <section id="services" className="py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden">
-      {/* Modern animated background */}
+    <section id="services" className="py-20 sm:py-28 lg:py-36 relative overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="gradient-mesh absolute inset-0 opacity-10" />
-        <div className="pattern-dots absolute inset-0 opacity-5" />
-        
-        {/* Animated gradient blobs */}
-        <div 
-          className="absolute w-[40vw] h-[40vw] blob gradient-vibrant opacity-20 blur-3xl right-[-10vw] bottom-[10vh] float-element"
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-900" />
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
         />
-        <div 
-          className="absolute w-[35vw] h-[35vw] blob bg-gradient-to-br from-cyan-500 to-blue-500 opacity-15 blur-3xl left-[-10vw] top-[10vh] float-element"
-          style={{ animationDelay: '3s' }}
-        />
+        {/* Gradient orbs */}
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-purple-500/10 blur-[120px] -top-[200px] -right-[200px]" />
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[100px] -bottom-[200px] -left-[200px]" />
       </div>
 
-      {/* Circuit connections between service cards */}
-      <ServiceCircuitConnections />
-
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-            <span className="font-bold">Mes Services</span>
+        {/* Section header */}
+        <div className="text-center mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
+            <Zap className="w-4 h-4 text-purple-400" />
+            <span className="text-sm text-purple-400 font-medium">Services</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="text-white">Ce que je </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">propose</span>
           </h2>
-          <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto px-4">
-            Des solutions sur mesure pour répondre à vos besoins digitaux et propulser votre entreprise vers le succès.
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+            Des solutions complètes pour transformer vos idées en produits digitaux performants
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 relative z-10">
+        {/* Services grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <div key={service.id} className="relative group">
-              <div className="relative">
-                {/* Card glow */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition duration-500" />
-                
-                <AnimatedCard 
-                  className="glass-ultra p-6 sm:p-8 flex flex-col h-full modern-card border-white/20 bg-white/5" 
-                  delayIndex={index}
-                >
-                  {/* Service Icon */}
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300 group-hover:scale-110 transform">
-                      <service.icon className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg sm:text-xl font-bold text-white">{service.title}</h3>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 flex-grow leading-relaxed">{service.description}</p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-start group/item">
-                        <span className="text-green-400 mr-2 group-hover/item:scale-125 transition-transform font-bold">✓</span>
-                        <span className="text-gray-200 group-hover/item:text-white transition-colors text-sm sm:text-base">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  {/* Circuit pulses */}
-                  <div className="top-pulse"></div>
-                  <div className="right-pulse"></div>
-                  <div className="bottom-pulse"></div>
-                  <div className="left-pulse"></div>
-                </AnimatedCard>
-              </div>
+            <div
+              key={service.id}
+              className="group relative"
+              onMouseEnter={() => setHoveredService(service.id)}
+              onMouseLeave={() => setHoveredService(null)}
+            >
+              {/* Card glow on hover */}
+              <div className={cn(
+                "absolute -inset-0.5 rounded-2xl bg-gradient-to-r opacity-0 blur-xl transition-all duration-500",
+                service.gradient,
+                hoveredService === service.id && "opacity-30"
+              )} />
+
+              <AnimatedCard
+                className={cn(
+                  "relative h-full p-6 sm:p-8 rounded-2xl",
+                  "bg-slate-800/50 backdrop-blur-sm",
+                  "border border-slate-700/50",
+                  "hover:border-slate-600/50",
+                  "transition-all duration-500"
+                )}
+                delayIndex={index}
+              >
+                {/* Icon */}
+                <div className={cn(
+                  "w-14 h-14 rounded-xl flex items-center justify-center mb-6",
+                  "bg-gradient-to-br",
+                  service.gradient,
+                  "shadow-lg",
+                  service.shadowColor,
+                  "group-hover:scale-110 transition-transform duration-300"
+                )}>
+                  <service.icon className="w-7 h-7 text-white" />
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-gray-400 text-sm sm:text-base mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-3 mb-6">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3 group/item">
+                      <div className={cn(
+                        "w-5 h-5 rounded-full flex items-center justify-center",
+                        "bg-gradient-to-br",
+                        service.gradient,
+                        "opacity-80"
+                      )}>
+                        <Check className="w-3 h-3 text-white" />
+                      </div>
+                      <span className="text-gray-300 text-sm group-hover/item:text-white transition-colors">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA Link */}
+                <div className="pt-4 border-t border-slate-700/50">
+                  <Link
+                    href="/devis"
+                    className={cn(
+                      "inline-flex items-center gap-2 text-sm font-medium",
+                      "text-gray-400 hover:text-white",
+                      "transition-all duration-300 group/link"
+                    )}
+                  >
+                    En savoir plus
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+
+                {/* Decorative corner */}
+                <div className={cn(
+                  "absolute top-0 right-0 w-20 h-20 opacity-10",
+                  "bg-gradient-to-bl rounded-tr-2xl rounded-bl-full",
+                  service.gradient
+                )} />
+              </AnimatedCard>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 sm:mt-16 text-center">
-          <a href="#contact" className="btn-primary inline-flex items-center">
-            Discuter de votre projet
-          </a>
+        {/* Bottom CTA */}
+        <div className="mt-16 sm:mt-20 text-center">
+          <Link href="/devis">
+            <button className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-base shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-[1.02]">
+              <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              Discuter de votre projet
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
         </div>
       </div>
-      
-      <ServiceCardStyles />
     </section>
   );
 };

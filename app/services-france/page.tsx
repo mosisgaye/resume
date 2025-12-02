@@ -101,7 +101,7 @@ export default function ServicesFrance() {
                 <Link href="/#contact" className="btn-primary inline-flex items-center">
                   Discuter de Votre Projet
                 </Link>
-                <a href="mailto:contact@webcraft-agency.com" className="btn-secondary inline-flex items-center">
+                <a href="mailto:moussgaye0@gmail.com" className="btn-secondary inline-flex items-center">
                   <Mail className="mr-2 h-5 w-5" />
                   Email Direct
                 </a>

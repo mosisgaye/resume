@@ -101,7 +101,7 @@ export default function ServicesMaroc() {
                 <Link href="/#contact" className="btn-primary inline-flex items-center">
                   Obtenir un Devis
                 </Link>
-                <a href="https://wa.me/221606213027" className="btn-secondary inline-flex items-center">
+                <a href="https://wa.me/212606213027" className="btn-secondary inline-flex items-center">
                   <Phone className="mr-2 h-5 w-5" />
                   WhatsApp Business
                 </a>

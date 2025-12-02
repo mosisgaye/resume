@@ -86,8 +86,8 @@ export default function NotFound() {
             <p className="text-sm text-gray-400">
               Besoin d'aide ? Contactez-moi directement :
             </p>
-            <a href="mailto:contact@webcraft-agency.com" className="text-purple-400 hover:text-purple-300 transition-colors">
-              contact@webcraft-agency.com
+            <a href="mailto:moussgaye0@gmail.com" className="text-purple-400 hover:text-purple-300 transition-colors">
+              moussgaye0@gmail.com
             </a>
           </div>
         </div>

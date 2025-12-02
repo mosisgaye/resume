@@ -89,38 +89,54 @@ body:not(.dark) .glass-morphism {
   transform: scale(1.05);
 }
 
-/* Navigation Link Styles */
+/* Navigation Link Styles - Clean without underlines */
 .nav-link {
   position: relative;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.25rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.2s ease;
+  border-radius: 8px;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #d4a574, #c19456);
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
+.dark .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+body:not(.dark) .nav-link {
+  color: #334155;
 }
 
 .nav-link:hover {
-  color: #d4a574;
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 80%;
+.dark .nav-link:hover {
+  color: #c4b5fd;
+  background: rgba(167, 139, 250, 0.15);
+}
+
+body:not(.dark) .nav-link:hover {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.08);
 }
 
 .nav-link.active {
-  color: #d4a574;
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.15);
+}
+
+.dark .nav-link.active {
+  color: #c4b5fd;
+  background: rgba(167, 139, 250, 0.2);
+}
+
+body:not(.dark) .nav-link.active {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.1);
 }
 
 /* Mobile Menu Animation */
@@ -244,6 +260,11 @@ body:not(.dark) .glass-morphism {
   transition: all 0.3s ease;
 }
 
+body:not(.dark) .theme-toggle-modern {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
 .theme-toggle-modern::before {
   content: '';
   position: absolute;
@@ -257,7 +278,32 @@ body:not(.dark) .glass-morphism {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+body:not(.dark) .theme-toggle-modern::before {
+  background: #fbbf24;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+}
+
 .theme-toggle-modern.dark::before {
   transform: translateX(30px);
   background: #1e293b;
+}
+
+/* Glass button for light mode */
+body:not(.dark) .btn-glass {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #475569;
+}
+
+body:not(.dark) .btn-glass:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #1e293b;
+}
+
+/* Dropdown menu for light mode */
+body:not(.dark) .dropdown-menu {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }

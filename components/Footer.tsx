@@ -1,104 +1,145 @@
+'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import { Github, Linkedin, Twitter, Mail, MapPin, Phone, ArrowUpRight, Heart } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
+  const navigation = [
+    { name: 'Accueil', href: '#home' },
+    { name: 'Compétences', href: '#skills' },
+    { name: 'Services', href: '#services' },
+    { name: 'Projets', href: '#projects' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  const socials = [
+    { name: 'GitHub', icon: Github, href: 'https://github.com/mosisgaye/Moussa-Gaye', color: 'hover:text-white' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/moussa-gaye-0a6455162/', color: 'hover:text-blue-400' },
+  ];
+
   return (
-    <footer className="py-8 sm:py-10 md:py-12 glass-dark border-t border-white/10 relative overflow-hidden">
-      {/* Modern animated background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="gradient-mesh absolute inset-0 opacity-5" />
-        <div className="pattern-dots absolute inset-0 opacity-5" />
-        
-        {/* Animated gradient blobs */}
-        <div 
-          className="absolute w-[30vw] h-[30vw] blob bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-3xl left-[-10vw] top-[-10vh] float-element"
-          style={{ animationDelay: '0s' }}
-        />
-        <div 
-          className="absolute w-[25vw] h-[25vw] blob bg-gradient-to-tr from-cyan-500/10 to-blue-500/10 blur-3xl right-[-10vw] bottom-[-10vh] float-element"
-          style={{ animationDelay: '5s' }}
-        />
-      </div>
-      <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-          <div className="">
-            <a href="#home" className="flex items-center gap-3 group">
-              {/* Logo MG */}
+    <footer className="relative overflow-hidden border-t border-slate-800">
+      {/* Background */}
+      <div className="absolute inset-0 -z-10 bg-slate-900" />
+
+      {/* Main footer content */}
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto py-16 sm:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+
+          {/* Brand column */}
+          <div className="lg:col-span-2">
+            <Link href="#home" className="inline-flex items-center gap-4 group mb-6">
+              {/* Premium MG Logo - matching header */}
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-                <div className="relative w-10 h-10 rounded-lg glass-ultra border border-white/10 flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20"></div>
-                  <span className="relative font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">MG</span>
+                <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-xl opacity-70"></div>
+                <div className="relative w-14 h-14 rounded-xl bg-slate-900 flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 via-slate-900 to-pink-900/50"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent"></div>
+                  <span className="relative font-black text-2xl tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-purple-300 via-pink-300 to-purple-300">MG</span>
+                  <div className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
                 </div>
               </div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-xl font-bold text-white">Moussa</span>
-                <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Gaye</span>
+              <div className="flex flex-col">
+                <span className="text-sm text-gray-400">Ingénieur Fullstack</span>
               </div>
-            </a>
+            </Link>
+
+            <p className="text-gray-400 text-sm leading-relaxed max-w-md mb-6">
+              Expert en développement web moderne. Je crée des applications performantes et scalables pour startups et entreprises.
+            </p>
+
+            {/* Contact info */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-gray-400 text-sm">
+                <MapPin className="w-4 h-4 text-purple-400" />
+                <span>Casablanca, Maroc</span>
+              </div>
+              <a href="mailto:moussgaye0@gmail.com" className="flex items-center gap-3 text-gray-400 text-sm hover:text-white transition-colors">
+                <Mail className="w-4 h-4 text-purple-400" />
+                <span>moussgaye0@gmail.com</span>
+              </a>
+              <a href="tel:+212606213027" className="flex items-center gap-3 text-gray-400 text-sm hover:text-white transition-colors">
+                <Phone className="w-4 h-4 text-purple-400" />
+                <span>+212 606 213 027</span>
+              </a>
+            </div>
           </div>
-          
-          <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 mx-auto">
-            <a href="#home" className="text-sm text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 transition-all">
-              Accueil
-            </a>
-            <a href="#skills" className="text-sm text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 transition-all">
-              Compétences
-            </a>
-            <a href="#services" className="text-sm text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 transition-all">
-              Services
-            </a>
-            <a href="#projects" className="text-sm text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 transition-all">
-              Projets
-            </a>
-            <a href="#contact" className="text-sm text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 transition-all">
-              Contact
-            </a>
+
+          {/* Navigation column */}
+          <div>
+            <h3 className="text-white font-semibold mb-6">Navigation</h3>
+            <ul className="space-y-4">
+              {navigation.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="text-gray-400 text-sm hover:text-white transition-colors inline-flex items-center gap-1 group"
+                  >
+                    {item.name}
+                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-          
-          <div className="flex gap-3 sm:gap-4">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full glass-ultra border border-white/10 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all hover:scale-110 transform"
-              aria-label="GitHub"
+
+          {/* CTA column */}
+          <div>
+            <h3 className="text-white font-semibold mb-6">Démarrer un projet</h3>
+            <p className="text-gray-400 text-sm mb-6">
+              Prêt à concrétiser votre idée ? Discutons de votre projet.
+            </p>
+            <Link
+              href="/devis"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium hover:from-purple-500 hover:to-pink-500 transition-all hover:scale-[1.02] shadow-lg shadow-purple-500/20"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full glass-ultra border border-white/10 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all hover:scale-110 transform"
-              aria-label="LinkedIn"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full glass-ultra border border-white/10 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all hover:scale-110 transform"
-              aria-label="Twitter"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-              </svg>
-            </a>
+              Demander un devis
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+
+            {/* Social links */}
+            <div className="mt-8">
+              <p className="text-gray-500 text-xs mb-4">Suivez-moi</p>
+              <div className="flex gap-3">
+                {socials.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center",
+                      "text-gray-400 transition-all duration-300 hover:scale-110 hover:border-slate-600",
+                      social.color
+                    )}
+                    aria-label={social.name}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/10 text-center text-xs sm:text-sm text-gray-400">
-          <p>© {currentYear} Moussa Gaye. Tous droits réservés.</p>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-slate-800">
+        <div className="container px-4 sm:px-6 lg:px-8 mx-auto py-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-gray-500 text-sm flex items-center gap-1">
+              © {currentYear} Moussa Gaye. Fait avec <Heart className="w-4 h-4 text-pink-500 fill-pink-500" /> au Maroc
+            </p>
+            <div className="flex items-center gap-6 text-gray-500 text-sm">
+              <a href="#" className="hover:text-white transition-colors">Mentions légales</a>
+              <a href="#" className="hover:text-white transition-colors">Politique de confidentialité</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
